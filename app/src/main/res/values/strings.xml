@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FeNi Level</string>
+    <string name="ni_in_ore">Ni in ore</string>
+    <string name="charge_ore">Charge ore</string>
+</resources>
