@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/container"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -11,41 +12,119 @@
         android:orientation="vertical"
         tools:context="com.gmail.tscybernetics.fenilevel.FeNiLevel">
 
+    <!--additional_options-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="15dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/bottom_area"/>
+
+            <TextView
+                android:id="@+id/textview_bottom_area"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="0"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/feni_density"/>
+
+            <TextView
+                android:id="@+id/textview_feni_density"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="0"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/ni_extraction"/>
+
+            <TextView
+                android:id="@+id/textview_ni_extraction"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="0"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
     <!--former_metal_level-->
     <LinearLayout
-            style="@style/SeekbarLayout">
+        style="@style/SeekbarLayout">
 
         <TextView
-                style="@style/SeekbarLabel"
-                android:text="@string/former_metal_level"/>
+            style="@style/SeekbarLabel"
+            android:text="@string/former_metal_level"/>
 
         <android.support.v7.widget.AppCompatSeekBar
-                android:id="@+id/seekbar_former_metal_level"
-                style="@style/Seekbar"
-                android:max="5"/>
+            android:id="@+id/seekbar_former_metal_level"
+            style="@style/Seekbar"
+            android:max="5"/>
 
         <TextView
-                android:id="@+id/textview_former_metal_level"
-                style="@style/SeekbarValueText"/>
+            android:id="@+id/textview_former_metal_level"
+            style="@style/SeekbarValueText"/>
 
     </LinearLayout>
 
     <!--charge_loaded-->
     <LinearLayout
-            style="@style/SeekbarLayout">
+        style="@style/SeekbarLayout">
 
         <TextView
-                style="@style/SeekbarLabel"
-                android:text="@string/charge_loaded"/>
+            style="@style/SeekbarLabel"
+            android:text="@string/charge_loaded"/>
 
         <android.support.v7.widget.AppCompatSeekBar
-                android:id="@+id/seekbar_charge_loaded"
-                style="@style/Seekbar"
-                android:max="5"/>
+            android:id="@+id/seekbar_charge_loaded"
+            style="@style/Seekbar"
+            android:max="5"/>
 
         <TextView
-                android:id="@+id/textview_charge_loaded"
-                style="@style/SeekbarValueText" />
+            android:id="@+id/textview_charge_loaded"
+            style="@style/SeekbarValueText" />
 
     </LinearLayout>
 
@@ -70,43 +149,40 @@
 
     <!--metal_mass-->
     <LinearLayout
-            style="@style/SeekbarLayout">
+        style="@style/SeekbarLayout">
 
         <TextView
-                style="@style/SeekbarLabel"
-                android:text="@string/metal_mass"/>
+            style="@style/SeekbarLabel"
+            android:text="@string/metal_mass"/>
 
         <android.support.v7.widget.AppCompatSeekBar
-                android:id="@+id/seekbar_metal_mass"
-                style="@style/Seekbar"
-                android:max="5"/>
+            android:id="@+id/seekbar_metal_mass"
+            style="@style/Seekbar"
+            android:max="5"/>
 
         <TextView
-                android:id="@+id/textview_metal_mass"
-                style="@style/SeekbarValueText" />
+            android:id="@+id/textview_metal_mass"
+            style="@style/SeekbarValueText" />
 
     </LinearLayout>
 
     <!--Ni_in_metal-->
     <LinearLayout
-            style="@style/SeekbarLayout">
+        style="@style/SeekbarLayout">
 
         <TextView
-                style="@style/SeekbarLabel"
-                android:text="@string/ni_in_metal"/>
+            style="@style/SeekbarLabel"
+            android:text="@string/ni_in_metal"/>
 
         <android.support.v7.widget.AppCompatSeekBar
-                android:id="@+id/seekbar_ni_in_metal"
-                style="@style/Seekbar"
-                android:max="5"/>
+            android:id="@+id/seekbar_ni_in_metal"
+            style="@style/Seekbar"
+            android:max="5"/>
 
         <TextView
-                android:id="@+id/textview_ni_in_metal"
-                style="@style/SeekbarValueText" />
+            android:id="@+id/textview_ni_in_metal"
+            style="@style/SeekbarValueText" />
 
     </LinearLayout>
-
-
-
 
 </LinearLayout>

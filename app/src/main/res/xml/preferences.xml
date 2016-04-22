@@ -2,21 +2,21 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <EditTextPreference
-            android:title="Furnace bottom area"
+            android:title="@string/bottom_area"
             android:key="bottom_area"
             android:summary="Furnace bottom area"
             android:inputType="numberDecimal"
             android:defaultValue="197.5"/>
 
     <EditTextPreference
-            android:title="Ni extraction"
+            android:title="@string/ni_extraction"
             android:key="ni_extraction"
             android:summary="Ni extraction to metall"
             android:inputType="numberDecimal"
             android:defaultValue="91.5"/>
 
     <EditTextPreference
-            android:title="FeNi density"
+            android:title="@string/feni_density"
             android:key="feni_density"
             android:summary="FeNi density"
             android:inputType="numberDecimal"

@@ -1,9 +1,17 @@
 package com.gmail.tscybernetics.fenilevel;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.SeekBar;
 import android.support.v7.widget.AppCompatSeekBar;
 import android.widget.TextView;
@@ -26,6 +34,10 @@ public class FeNiLevel extends AppCompatActivity implements SeekBar.OnSeekBarCha
     private TextView mMetalMassTextView;
     private TextView mNiInMetalTextView;
 
+    private TextView mBottomAreaTextView;
+    private TextView mFeNiDensityTextView;
+    private TextView mNiExtractionTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +54,10 @@ public class FeNiLevel extends AppCompatActivity implements SeekBar.OnSeekBarCha
         mNiInChargeTextView = (TextView) findViewById(R.id.textview_ni_in_charge);
         mMetalMassTextView = (TextView) findViewById(R.id.textview_metal_mass);
         mNiInMetalTextView  = (TextView) findViewById(R.id.textview_ni_in_metal);
+
+        mBottomAreaTextView = (TextView) findViewById(R.id.textview_bottom_area);
+        mFeNiDensityTextView = (TextView) findViewById(R.id.textview_feni_density);
+        mNiExtractionTextView = (TextView) findViewById(R.id.textview_ni_extraction);
 
     }
 
@@ -60,9 +76,36 @@ public class FeNiLevel extends AppCompatActivity implements SeekBar.OnSeekBarCha
         super.onResume();
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        bottomArea = sp.getFloat("bottom_area", 197.5f);
-        feniDensity = sp.getFloat("feni_density", 7.65f);
-        niExtraction = sp.getFloat("ni_extraction", 91.5f);
+        bottomArea = Float.parseFloat(sp.getString("bottom_area", "0"));
+        feniDensity = Double.parseDouble(sp.getString("feni_density", "0"));
+        niExtraction = Double.parseDouble(sp.getString("ni_extraction", "0"));
+
+        setupAdditionalOptions();
+    }
+
+    private void setupAdditionalOptions () {
+        mBottomAreaTextView.setText(String.valueOf(bottomArea));
+        mFeNiDensityTextView.setText(String.valueOf(feniDensity));
+        mNiExtractionTextView.setText(String.valueOf(niExtraction));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu ,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+        switch (id){
+            case R.id.additional_settings:
+                startActivity(new Intent(this, AdditionSettings.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.ujujzk.easyengmaterial.eeapp.grammar.GrammarActivity">
+
+    <item
+            android:id="@+id/additional_settings"
+            android:title="@string/action_additional_settings"
+            android:icon="@drawable/ic_settings_white_48dp"
+            android:orderInCategory="10"
+            app:showAsAction="always"/>
+
+
+</menu>
