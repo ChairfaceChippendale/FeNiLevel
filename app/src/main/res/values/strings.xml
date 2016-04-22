@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">FeNi Level</string>
-    <string name="ni_in_ore">Ni in ore</string>
-    <string name="charge_ore">Charge ore</string>
+
+    <string name="former_metal_level">Me level</string>
+    <string name="charge_loaded">Charge</string>
+    <string name="ni_in_charge">Ni in charge</string>
+    <string name="metal_mass">Me mass</string>
+    <string name="ni_in_metal">Ni in Me</string>
 </resources>
