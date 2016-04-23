@@ -7,9 +7,9 @@
     <string name="metal_mass">Me mass</string>
     <string name="ni_in_metal">Ni in Me</string>
 
-    <string name="bottom_area">Bottom area</string>
-    <string name="ni_extraction">Ni extraction</string>
-    <string name="feni_density">FeNi density</string>
+    <string name="bottom_area">Bottom area, m2</string>
+    <string name="ni_extraction">Ni extraction, %</string>
+    <string name="feni_density">FeNi density, t/m3</string>
 
     <string name="action_additional_settings">Settings</string>
 

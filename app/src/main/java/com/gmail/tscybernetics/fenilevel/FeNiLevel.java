@@ -3,15 +3,10 @@ package com.gmail.tscybernetics.fenilevel;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.SeekBar;
 import android.support.v7.widget.AppCompatSeekBar;
 import android.widget.TextView;
@@ -58,6 +53,8 @@ public class FeNiLevel extends AppCompatActivity implements SeekBar.OnSeekBarCha
         mBottomAreaTextView = (TextView) findViewById(R.id.textview_bottom_area);
         mFeNiDensityTextView = (TextView) findViewById(R.id.textview_feni_density);
         mNiExtractionTextView = (TextView) findViewById(R.id.textview_ni_extraction);
+
+        Calculator calculator = new Calculator();
 
     }
 
