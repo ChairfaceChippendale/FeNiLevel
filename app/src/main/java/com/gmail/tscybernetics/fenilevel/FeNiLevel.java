@@ -11,11 +11,10 @@ import android.widget.SeekBar;
 import android.support.v7.widget.AppCompatSeekBar;
 import android.widget.TextView;
 
-public class FeNiLevel extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
-    private double bottomArea = .0;
-    private double feniDensity = .0;
-    private double niExtraction = .0;
+public class FeNiLevel extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
 
     private AppCompatSeekBar mFormerMetalLevelSeekBar;
     private AppCompatSeekBar mChargeLoadedSeekBar;
@@ -32,6 +31,10 @@ public class FeNiLevel extends AppCompatActivity implements SeekBar.OnSeekBarCha
     private TextView mBottomAreaTextView;
     private TextView mFeNiDensityTextView;
     private TextView mNiExtractionTextView;
+
+    private Calculator calculator;
+
+    private TextView resultTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,18 +57,33 @@ public class FeNiLevel extends AppCompatActivity implements SeekBar.OnSeekBarCha
         mFeNiDensityTextView = (TextView) findViewById(R.id.textview_feni_density);
         mNiExtractionTextView = (TextView) findViewById(R.id.textview_ni_extraction);
 
-        Calculator calculator = new Calculator();
+        resultTextView = (TextView) findViewById(R.id.result);
+
+        calculator = new Calculator();
 
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+
+        setupSeekBars ();
+
+
+    }
+
+    private void setupSeekBars() {
         mFormerMetalLevelSeekBar.setOnSeekBarChangeListener(this);
         mChargeLoadedSeekBar.setOnSeekBarChangeListener(this);
         mNiInChargeSeekBar.setOnSeekBarChangeListener(this);
         mMetalMassSeekBar.setOnSeekBarChangeListener(this);
         mNiInMetalSeekBar.setOnSeekBarChangeListener(this);
+
+        mFormerMetalLevelSeekBar.setMax( (Const.FORMER_METAL_LEVEL_MAX - Const.FORMER_METAL_LEVEL_MIN)/Const.FORMER_METAL_LEVEL_STEP );
+        mChargeLoadedSeekBar.setMax( (Const.CHARGE_LOADED_MAX - Const.CHARGE_LOADED_MIN)/Const.CHARGE_LOADED_STEP );
+        mNiInChargeSeekBar.setMax( (int)((Const.NI_IN_CHARGE_MAX - Const.NI_IN_CHARGE_MIN)/Const.NI_IN_CHARGE_STEP) );
+        mMetalMassSeekBar.setMax( (Const.METAL_MASS_MAX - Const.METAL_MASS_MIN)/Const.METAL_MASS_STEP );
+        mNiInMetalSeekBar.setMax( (int)((Const.NI_IN_METAL_MAX - Const.NI_IN_METAL_MIN)/Const.NI_IN_METAL_STEP) );
     }
 
     @Override
@@ -73,17 +91,15 @@ public class FeNiLevel extends AppCompatActivity implements SeekBar.OnSeekBarCha
         super.onResume();
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        bottomArea = Float.parseFloat(sp.getString("bottom_area", "0"));
-        feniDensity = Double.parseDouble(sp.getString("feni_density", "0"));
-        niExtraction = Double.parseDouble(sp.getString("ni_extraction", "0"));
+        double bottomArea = Double.parseDouble(sp.getString("bottom_area", getString(R.string.bottom_area_default_value)));
+        double feniDensity = Double.parseDouble(sp.getString("feni_density", getString(R.string.feni_density_default_value)));
+        double niExtraction = Double.parseDouble(sp.getString("ni_extraction", getString(R.string.ni_extraction_default_value)));
 
-        setupAdditionalOptions();
-    }
-
-    private void setupAdditionalOptions () {
         mBottomAreaTextView.setText(String.valueOf(bottomArea));
         mFeNiDensityTextView.setText(String.valueOf(feniDensity));
         mNiExtractionTextView.setText(String.valueOf(niExtraction));
+
+        calculator.setAdditionalOptions(bottomArea, feniDensity, niExtraction);
     }
 
     @Override
@@ -108,16 +124,30 @@ public class FeNiLevel extends AppCompatActivity implements SeekBar.OnSeekBarCha
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         if (seekBar == mFormerMetalLevelSeekBar) {
-            mFormerMetalLevelTextView.setText(String.valueOf(progress));
+            int newValue = Const.FORMER_METAL_LEVEL_MIN + progress * Const.FORMER_METAL_LEVEL_STEP;
+            mFormerMetalLevelTextView.setText(String.valueOf(newValue));
+            calculator.setFormerMetalLevel(newValue);
         } else if (seekBar == mChargeLoadedSeekBar) {
-            mChargeLoadedTextView.setText(String.valueOf(progress));
+            int newValue = Const.CHARGE_LOADED_MIN + progress * Const.CHARGE_LOADED_STEP;
+            mChargeLoadedTextView.setText(String.valueOf(newValue));
+            calculator.setChargeLoaded(newValue);
         } else if (seekBar == mNiInChargeSeekBar) {
-            mNiInChargeTextView.setText(String.valueOf(progress));
+            double newValue = Const.NI_IN_CHARGE_MIN + progress * Const.NI_IN_CHARGE_STEP;
+            newValue = new BigDecimal(newValue).setScale(1, RoundingMode.UP).doubleValue();
+            mNiInChargeTextView.setText(String.valueOf(newValue));
+            calculator.setNiInCharge(newValue);
         } else if (seekBar == mMetalMassSeekBar) {
-            mMetalMassTextView.setText(String.valueOf(progress));
+            int newValue = Const.METAL_MASS_MIN + progress * Const.METAL_MASS_STEP;
+            mMetalMassTextView.setText(String.valueOf(newValue));
+            calculator.setMetalMass(newValue);
         } else if (seekBar == mNiInMetalSeekBar) {
-            mNiInMetalTextView.setText(String.valueOf(progress));
+            double newValue = Const.NI_IN_METAL_MIN + progress * Const.NI_IN_METAL_STEP;
+            newValue = new BigDecimal(newValue).setScale(1, RoundingMode.UP).doubleValue();
+            mNiInMetalTextView.setText(String.valueOf(newValue));
+            calculator.setNiInMetal(newValue);
         }
+
+        resultTextView.setText(String.valueOf(calculator.getMetalLevel())); //TODO
     }
 
     @Override

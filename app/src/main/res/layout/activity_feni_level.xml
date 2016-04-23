@@ -19,71 +19,47 @@
         android:orientation="horizontal"
         android:paddingBottom="15dp">
 
+        <!--bottom_area-->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            style="@style/AddOptLayout">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
+                style="@style/AddOptDescription"
                 android:text="@string/bottom_area"/>
 
             <TextView
                 android:id="@+id/textview_bottom_area"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
+                style="@style/AddOptValue"
                 android:text="0"/>
 
         </LinearLayout>
 
+        <!--feni_density-->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            style="@style/AddOptLayout">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
+               style="@style/AddOptDescription"
                 android:text="@string/feni_density"/>
 
             <TextView
                 android:id="@+id/textview_feni_density"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
+                style="@style/AddOptValue"
                 android:text="0"/>
 
         </LinearLayout>
 
+        <!--ni_extraction-->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            style="@style/AddOptLayout">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
+                style="@style/AddOptDescription"
                 android:text="@string/ni_extraction"/>
 
             <TextView
                 android:id="@+id/textview_ni_extraction"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
+                style="@style/AddOptValue"
                 android:text="0"/>
 
         </LinearLayout>
@@ -101,7 +77,7 @@
         <android.support.v7.widget.AppCompatSeekBar
             android:id="@+id/seekbar_former_metal_level"
             style="@style/Seekbar"
-            android:max="5"/>
+            android:max="1000"/>
 
         <TextView
             android:id="@+id/textview_former_metal_level"
@@ -184,5 +160,15 @@
             style="@style/SeekbarValueText" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:text="0"/>
+
+
 
 </LinearLayout>

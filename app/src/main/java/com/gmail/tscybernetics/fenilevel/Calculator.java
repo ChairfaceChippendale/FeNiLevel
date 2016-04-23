@@ -7,10 +7,10 @@ public class Calculator {
     private double feniDensity;
     private double niExtraction;
 
-    private double formerMetalLevel;
+    private int formerMetalLevel;
     private double niInCharge;
-    private double chargeLoaded;
-    private double metalMass;
+    private int chargeLoaded;
+    private int metalMass;
     private double niInMetal;
 
     public Calculator() {
@@ -18,7 +18,7 @@ public class Calculator {
         this.bottomArea = Const.BOTTOM_AREA_MIN;
         this.feniDensity = Const.FENI_DENSITY_MIN;
         this.niExtraction = Const.NI_EXTRACTION_MIN;
-        this.formerMetalLevel = Const.FORMER_LEVEL_MIN;
+        this.formerMetalLevel = Const.FORMER_METAL_LEVEL_MIN;
         this.niInCharge = Const.NI_IN_CHARGE_MIN;
         this.chargeLoaded = Const.CHARGE_LOADED_MIN;
         this.metalMass = Const.METAL_MASS_MIN;
@@ -33,7 +33,7 @@ public class Calculator {
         this.niExtraction = niExtraction;
     }
 
-    public void setFormerMetalLevel(double formerMetalLevel) {
+    public void setFormerMetalLevel(int formerMetalLevel) {
         this.formerMetalLevel = formerMetalLevel;
     }
 
@@ -41,11 +41,11 @@ public class Calculator {
         this.niInCharge = niInCharge;
     }
 
-    public void setChargeLoaded(double chargeLoaded) {
+    public void setChargeLoaded(int chargeLoaded) {
         this.chargeLoaded = chargeLoaded;
     }
 
-    public void setMetalMass(double metalMass) {
+    public void setMetalMass(int metalMass) {
         this.metalMass = metalMass;
     }
 
@@ -53,8 +53,9 @@ public class Calculator {
         this.niInMetal = niInMetal;
     }
 
-    public double getMetalLevel () {
-        return 0;
+    public int getMetalLevel () {
+        //TODO
+        return (int) (chargeLoaded + niExtraction + formerMetalLevel);
     }
 
 

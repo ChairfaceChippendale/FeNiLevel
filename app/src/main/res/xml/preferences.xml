@@ -6,20 +6,20 @@
             android:key="bottom_area"
             android:summary="Furnace bottom area"
             android:inputType="numberDecimal"
-            android:defaultValue="197.5"/>
+            android:defaultValue="@string/bottom_area_default_value"/>
 
     <EditTextPreference
             android:title="@string/ni_extraction"
             android:key="ni_extraction"
             android:summary="Ni extraction to metall"
             android:inputType="numberDecimal"
-            android:defaultValue="91.5"/>
+            android:defaultValue="@string/ni_extraction_default_value"/>
 
     <EditTextPreference
             android:title="@string/feni_density"
             android:key="feni_density"
             android:summary="FeNi density"
             android:inputType="numberDecimal"
-            android:defaultValue="7.65"/>
+            android:defaultValue="@string/feni_density_default_value"/>
 
 </PreferenceScreen>

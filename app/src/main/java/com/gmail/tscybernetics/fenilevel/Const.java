@@ -21,30 +21,28 @@ public class Const {
     public static final double NI_EXTRACTION_STEP = .1;
 
     //mm
-    public static final double FORMER_LEVEL_MAX = 5000;
-    public static final double FORMER_LEVEL_MIN = 0;
-    public static final double FORMER_LEVEL_STEP = 1;
+    public static final int FORMER_METAL_LEVEL_MAX = 2000;
+    public static final int FORMER_METAL_LEVEL_MIN = 0;
+    public static final int FORMER_METAL_LEVEL_STEP = 1;
 
     //%
-    public static final double NI_IN_CHARGE_MAX = 50;
+    public static final double NI_IN_CHARGE_MAX = 20;
     public static final double NI_IN_CHARGE_MIN = 0;
     public static final double NI_IN_CHARGE_STEP = 0.1;
 
     //ton
-    public static final double CHARGE_LOADED_MAX = 10000;
-    public static final double CHARGE_LOADED_MIN = 0;
-    public static final double CHARGE_LOADED_STEP = 10;
-
+    public static final int CHARGE_LOADED_MAX = 5000;
+    public static final int CHARGE_LOADED_MIN = 0;
+    public static final int CHARGE_LOADED_STEP = 10;
 
     //ton
-    public static final double METAL_MASS_MAX = 2000;
-    public static final double METAL_MASS_MIN = 0;
-    public static final double METAL_MASS_STEP = 5;
-
+    public static final int METAL_MASS_MAX = 2000;
+    public static final int METAL_MASS_MIN = 0;
+    public static final int METAL_MASS_STEP = 5;
 
     //%
-    public static final double NI_IN_METAL_MAX = 100;
-    public static final double NI_IN_METAL_MIN = 0;
+    public static final double NI_IN_METAL_MAX = 80;
+    public static final double NI_IN_METAL_MIN = 2;
     public static final double NI_IN_METAL_STEP = 0.1;
 
 
