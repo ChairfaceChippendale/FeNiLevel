@@ -11,10 +11,11 @@
     <string name="ni_extraction">Ni extraction, %</string>
     <string name="feni_density">FeNi density, t/m<sup>3</sup></string>
 
-    <string name="action_additional_settings">Settings</string>
+    <string name="action_additional_settings">Options</string>
 
-    <string name="bottom_area_default_value">197.5</string>
-    <string name="ni_extraction_default_value">91.5</string>
-    <string name="feni_density_default_value">7.65</string>
+    <string name="bottom_area_default_value" translatable="false">197.5</string>
+    <string name="ni_extraction_default_value" translatable="false">91.5</string>
+    <string name="feni_density_default_value" translatable="false">7.65</string>
+
 
 </resources>

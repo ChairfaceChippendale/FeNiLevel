@@ -147,7 +147,7 @@ public class FeNiLevel extends AppCompatActivity implements SeekBar.OnSeekBarCha
             calculator.setNiInMetal(newValue);
         }
 
-        resultTextView.setText(String.valueOf(calculator.getMetalLevel())); //TODO
+        resultTextView.setText(String.valueOf(calculator.getMetalLevel()));
     }
 
     @Override

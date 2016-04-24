@@ -2,4 +2,13 @@
 <resources>
     <string name="app_name">FeNi Level</string>
     <string name="ni_in_ore">Ni у руді</string>
+    <string name="action_additional_settings">Опції</string>
+    <string name="bottom_area">Площа поду, м<sup>2</sup></string>
+    <string name="charge_loaded">Шихта</string>
+    <string name="feni_density">Щильність FeNi,т/м<sup>3</sup></string>
+    <string name="former_metal_level">Рівень Me</string>
+    <string name="metal_mass">Випуск Me</string>
+    <string name="ni_extraction">Вилучення Ni, %</string>
+    <string name="ni_in_charge">Ni у шихті</string>
+    <string name="ni_in_metal">Ni у Ме</string>
 </resources>

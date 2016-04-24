@@ -1,6 +1,8 @@
 package com.gmail.tscybernetics.fenilevel;
 
 
+import android.util.Log;
+
 public class Calculator {
 
     private double bottomArea;
@@ -54,8 +56,16 @@ public class Calculator {
     }
 
     public int getMetalLevel () {
-        //TODO
-        return (int) (chargeLoaded + niExtraction + formerMetalLevel);
+
+        double createdMetal = chargeLoaded * (niInCharge/100) * (niExtraction/100) / (niInMetal/100);
+        Log.d("myTAG", "createdMetal = " + chargeLoaded + " * " + (niInCharge/100) + " * " + (niExtraction/100) + "//" + (niInMetal/100) + " = " + String.valueOf(createdMetal));
+        double metalInFurnace = createdMetal - metalMass;
+        Log.d("myTAG", "metalInFurnace" + String.valueOf(metalInFurnace));
+        double metalVolumeInFurnace = metalInFurnace / feniDensity;
+        Log.d("myTAG", "metalVolumeInFurnace" + String.valueOf(metalVolumeInFurnace));
+        int metalLevel = (int) (formerMetalLevel + (metalVolumeInFurnace / bottomArea) * 1000); //1000 - meters to millimeters
+        Log.d("myTAG", "metalLevel" + String.valueOf(metalLevel));
+        return metalLevel;
     }
 
 
